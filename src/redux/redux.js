@@ -25,30 +25,33 @@ const addExpense = ({id, description, note, amount, createdAt}) => ({
 const expensesDefaultState = [];
 const expensesReducer = (state = expensesDefaultState, action) => {
     switch (action.type) {
-        case 'ADD_EXPENSE':
-            
-            break;
-    
         default:
             return state;
     }
 };
 
 
-const state = {
-    expenses: [
-        {
-            id: "123abc8910",
-            description: 'Jan rent',
-            note: 'This was the final payment for the address',
-            amount: 31900,
-            createdAt: 0
-        }
-    ],
-    filter: {
-        text: 'rent',
-        sortBy: 'amount', // amount or date
-        startDate: undefined,
-        endDate: undefined
+// Filter Reducer
+const filterDefaultState = {
+    text: '',
+    sortBy: 'amount',
+    startDate: undefined,
+    endDate: undefined
+};
+
+const filterReducer = (state = filterDefaultState, action) => {
+    switch (action.type) {
+        default:
+            return state;
     }
 };
+
+
+
+// State Store
+const store = createStore(combineReducers({
+    expenses: expensesReducer,
+    filter: filterReducer
+}));
+
+console.log(store.getState());
