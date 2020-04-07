@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../redux/redux';
 
 const App = () => (
     <div>
