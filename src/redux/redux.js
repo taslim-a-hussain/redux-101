@@ -3,6 +3,15 @@ import {createStore, combineReducers} from 'redux';
 
 // Actions
 // Add_Expense
+const addExpense = ({id, description, note, amount, createdAt}) => ({
+    id,
+    description,
+    note,
+    amount,
+    createdAt
+});
+
+
 // Remove_Expense
 // Edit_Expense
 // Set_Text_Filter
@@ -10,6 +19,20 @@ import {createStore, combineReducers} from 'redux';
 // Sort_By_Amount
 // Set_Start_Date
 // Set_End_Date
+
+
+// Expenses Reducer
+const expensesDefaultState = [];
+const expensesReducer = (state = expensesDefaultState, action) => {
+    switch (action.type) {
+        case 'ADD_EXPENSE':
+            
+            break;
+    
+        default:
+            return state;
+    }
+};
 
 
 const state = {
