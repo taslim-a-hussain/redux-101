@@ -1,6 +1,13 @@
 import {createStore} from 'redux';
 
-const store = createStore((state = {count: 0}, action) => {
+/**
+ * Reducers
+ *  1. Are pure functions
+ * 2. Never change state or funtion 
+ * @param {object} state 
+ * @param {object} action 
+ */
+const countReducer = (state = {count: 0}, action) => {
     switch (action.type) {
         case 'INCREMENT':
             return {count: state.count + action.incrementBy};
@@ -13,7 +20,9 @@ const store = createStore((state = {count: 0}, action) => {
         default:
             return state;
     }
-});
+};
+
+const store = createStore(countReducer);
 
 store.subscribe(() => {
     console.log(store.getState());
