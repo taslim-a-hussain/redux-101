@@ -1,6 +1,6 @@
 import {createStore, combineReducers} from 'redux';
 import {expensesReducer, filtersReducer} from './reducers/reducers';
-import {addExpense, removeExpense} from './actions/actions';
+import {addExpense, removeExpense, editExpense} from './actions/actions';
 
 
 // State Store
@@ -16,7 +16,8 @@ store.subscribe(() => {
 
 
 const rent = store.dispatch(addExpense({description: 'rent', amount: 35000}));
-store.dispatch(addExpense({description: 'coffee', amount: 350}));
+const coffee = store.dispatch(addExpense({description: 'coffee', amount: 350}));
 store.dispatch(addExpense({description: 'book', amount: 2449}));
 
 store.dispatch(removeExpense(rent.expense.id));
+store.dispatch(editExpense(coffee.expense.id, {description: 'COFFEE'}));

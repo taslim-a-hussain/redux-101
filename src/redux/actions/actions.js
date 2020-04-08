@@ -21,6 +21,12 @@ export const removeExpense = (id) => ({
 });
 
 // Edit_Expense
+export const editExpense = (id, update) => ({
+    type: 'EDIT_EXPENSE',
+    id,
+    update
+});
+
 // Set_Text_Filter
 // Sort_By_Date
 // Sort_By_Amount
