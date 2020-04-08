@@ -26,9 +26,3 @@ export const editExpense = (id, update) => ({
     id,
     update
 });
-
-// Set_Text_Filter
-// Sort_By_Date
-// Sort_By_Amount
-// Set_Start_Date
-// Set_End_Date
