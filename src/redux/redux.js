@@ -1,5 +1,6 @@
 import {createStore, combineReducers} from 'redux';
-import {expensesReducer, filtersReducer} from './reducers/reducers';
+import expensesReducer from './reducers/expensesReducer';
+import filtersReducer from './reducers/filtersReducer';
 import {addExpense} from './actions/expenses';
 import {sortByAmount} from './actions/filters';
 
