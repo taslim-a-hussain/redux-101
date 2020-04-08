@@ -1,7 +1,7 @@
 import {createStore, combineReducers} from 'redux';
 import {expensesReducer, filtersReducer} from './reducers/reducers';
 import {addExpense} from './actions/expenses';
-import {setTextfilter} from './actions/filters';
+import {sortByAmount} from './actions/filters';
 
 
 
@@ -19,14 +19,18 @@ const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
         const textMatch = expense.description.toLowerCase().includes(text.toLowerCase());
 
         return startDateMatch && endDateMatch && textMatch;
+    }).sort((a, b) => {
+        if (sortBy === 'date') {
+            return a.createdAt < b.createdAt ? 1 : -1;
+        }
+        return a.amount < b.amount ? 1 : -1;        
     });
 };
 
 
 store.dispatch(addExpense({description: 'coffee', amount: 300, createdAt: 1000}));
 store.dispatch(addExpense({description: 'book', amount: 400, createdAt: -1000}));
-store.dispatch(setTextfilter('book'));
-
+store.dispatch(sortByAmount());
 
 const state = store.getState();
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
