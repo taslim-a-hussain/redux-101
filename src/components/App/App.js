@@ -1,11 +1,20 @@
 import React from 'react';
-import '../../redux/store';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import Header from '../Header/Header';
+import Dashboard from '../Dashboard/Dashboard';
+import Create from '../Create/Create';
 
-const App = () => (
-    <div>
-        <h1>Redux-101</h1>
-        <p>Lets learn Redux!</p>
-    </div>
-);
+const App = () => {
+    return (
+        <BrowserRouter>
+            <Header />
+            <Switch>
+                <Route exact path="/" component={Dashboard} />
+                <Route path="/create" component={Create} />
+            </Switch>
+        </BrowserRouter>
+    );
+};
+
 
 export default App;
