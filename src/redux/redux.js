@@ -1,7 +1,7 @@
 import {createStore, combineReducers} from 'redux';
 import {expensesReducer, filtersReducer} from './reducers/reducers';
 import {addExpense, removeExpense, editExpense} from './actions/expenses';
-import {setTextfilter, sortByAmount, sortByDate} from './actions/filters';
+import {setTextfilter, sortByAmount, sortByDate, setStartDate, setEndDate} from './actions/filters';
 
 
 // State Store
@@ -25,3 +25,5 @@ store.dispatch(editExpense(coffee.expense.id, {description: 'COFFEE'}));
 store.dispatch(setTextfilter('book'));
 store.dispatch(sortByAmount());
 store.dispatch(sortByDate());
+store.dispatch(setStartDate(100));
+store.dispatch(setEndDate(500));
