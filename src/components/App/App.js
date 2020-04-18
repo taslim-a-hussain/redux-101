@@ -7,12 +7,14 @@ import Expense from '../Expense/Expense';
 import Help from '../Help/Help';
 import NotFound from '../NotFound/NotFound';
 
+import './App.scss';
+
 class App extends React.Component {
 
     render() {
         return (
             <BrowserRouter>
-                <div>
+                <div className="app">
                 <Header />
                 <Switch>
                     <Route exact path="/" component={Dashboard} />

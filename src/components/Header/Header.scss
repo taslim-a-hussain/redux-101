@@ -1,11 +1,13 @@
 .container {
     display: flex;
+    padding: 20px 0;
 }
 
 .navBar {
     width: 460px;
+    background-color: lavenderblush;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     a {
@@ -18,29 +20,17 @@
     }
 
     a:hover {
-        color: tomato;
+        color: turquoise;
     }
-}
-
-.one {
-    width: 60px;
-    height: 20px;
-    background-color: green;
-}
-
-.two {
-    width: 60px;
-    height: 20px;
-    background-color: yellow;
 }
 
 
 .brand {
     color: tomato;
     cursor: pointer;
-    margin-right: 50px;
+    margin-right: auto;
 }
 
 .is-active {
-    color: chocolate !important;
+    color: tomato !important;
 }
