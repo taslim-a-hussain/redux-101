@@ -1,9 +1,46 @@
+.container {
+    display: flex;
+}
+
 .navBar {
+    width: 460px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     a {
         text-decoration: none;
+        font-weight: bold;
+        color: slategray;
+        padding: 2px;
+        width: 80px;
+        text-align: center;
     }
 
     a:hover {
-        color: green;
+        color: tomato;
     }
+}
+
+.one {
+    width: 60px;
+    height: 20px;
+    background-color: green;
+}
+
+.two {
+    width: 60px;
+    height: 20px;
+    background-color: yellow;
+}
+
+
+.brand {
+    color: tomato;
+    cursor: pointer;
+    margin-right: 50px;
+}
+
+.is-active {
+    color: chocolate !important;
 }
