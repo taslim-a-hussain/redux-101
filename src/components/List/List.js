@@ -1,15 +1,21 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import sortedExpenses from '../../redux/selectors/expenses';
+
+import './List.scss';
 
 const List = (props) => {
-    console.log(props.expenses);
-    
     return (
     <div>
         <h2>List</h2>
         {
             props.expenses.map((expense, key) => {
-            return <div key={key}>{expense}</div>
+            return (
+                <div className="expense-list" key={key}>
+                    <p>{expense.description}</p>
+                    <p>{expense.amount} - {expense.createdAt}</p>
+                </div>
+            )
             })
         }
     </div>
@@ -18,7 +24,7 @@ const List = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        expenses: state.expenses
+        expenses: sortedExpenses(state.expenses, state.filters)
     };
 };
 
