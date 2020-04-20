@@ -20,7 +20,8 @@ class App extends React.Component {
     render() {
 
         store.dispatch(addExpense({description: 'Water bill', amount: 11000}));
-        store.dispatch(addExpense({description: 'gas bill', amount: 11000}));
+        store.dispatch(addExpense({description: 'gas bill', amount: 11000, createdAt: 2000}));
+        store.dispatch(addExpense({description: 'rent', amount: 59000, createdAt: 1000}));
         store.dispatch(setTextfilter('bill'));
 
 
