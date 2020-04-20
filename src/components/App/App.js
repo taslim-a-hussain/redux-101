@@ -7,30 +7,12 @@ import Expense from '../Expense/Expense';
 import Help from '../Help/Help';
 import NotFound from '../NotFound/NotFound';
 
-import store from '../../redux/store';
-import {addExpense} from '../../redux/actions/expenses';
-import {setTextfilter} from '../../redux/actions/filters';
-import state from '../../redux/selectors/expenses';
-
 
 import './App.scss';
 
 class App extends React.Component {
 
     render() {
-
-        // Add expense water bill
-        store.dispatch(addExpense({description: 'water bill', amount: 15000}));
-        // Add expense gas bill
-        store.dispatch(addExpense({description: 'gas bill', amount: 8000}));
-        // Set text filter -> bill
-        store.dispatch(setTextfilter('bill'));
-        // Get visible expenses -> print visibles ones to screen
-        const expenses = store.getState().expenses;
-        const filters = store.getState().filters;
-
-        // Print out
-        console.log(state(expenses, filters));
 
         return (
             <BrowserRouter>
