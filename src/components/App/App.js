@@ -23,6 +23,7 @@ class App extends React.Component {
         store.dispatch(addExpense({description: 'gas bill', amount: 11000}));
         store.dispatch(setTextfilter('bill'));
 
+
         return (
             <BrowserRouter>
                 <div className="app">
