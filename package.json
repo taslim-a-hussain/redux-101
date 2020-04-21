@@ -6,7 +6,9 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "moment": "^2.24.0",
     "react": "^16.13.1",
+    "react-dates": "^21.8.0",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
@@ -36,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-dates": "^17.1.10",
     "node-sass": "^4.13.1"
   }
 }
