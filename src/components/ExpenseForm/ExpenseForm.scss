@@ -5,3 +5,23 @@
 .success {
     color: green;
 }
+
+.DateInput_input {
+    font-size: 16px;
+    padding: 0;
+    text-align: center;
+}
+
+.DateInput_input__focused {
+    border-bottom: 2px solid tomato;
+    color: tomato;
+}
+
+.CalendarMonth_caption strong {
+    color: tomato;
+}
+
+.CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
+    background-color: tomato;
+    border: 1px solid brown;
+}

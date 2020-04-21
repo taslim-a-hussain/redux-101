@@ -2,12 +2,9 @@ import React from 'react';
 import {SingleDatePicker} from "react-dates";
 import moment from 'moment';
 import 'react-dates/initialize';
-import './ExpenseForm.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import './ExpenseForm.scss';
 
-const now = moment();
-
-console.log(now.format('Do MMM, YYYY'));
 
 export default class ExpenseForm extends React.Component {
 
@@ -81,8 +78,11 @@ export default class ExpenseForm extends React.Component {
                       onFocusChange={this.onFocusChange} 
                       numberOfMonths={1}
                       isOutsideRange={() => false}
+                      displayFormat="Do MMM, YYYY"
                     />
+                    <div>
                     <textarea placeholder="Add a note for your expense" value={this.state.note} onChange={this.onChangeNote} />
+                    </div>
                     <button>Add Expense</button>
                 </form>
             </div>
