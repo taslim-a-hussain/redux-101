@@ -6,6 +6,15 @@
     color: green;
 }
 
+.DayPicker_transitionContainer {
+    border: 1px solid tomato;
+}
+
+.DateInput_fangStroke {
+    stroke: tomato;
+    fill: tomato;
+}
+
 .DateInput_input {
     font-size: 16px;
     padding: 0;
@@ -24,4 +33,8 @@
 .CalendarDay__selected, .CalendarDay__selected:active, .CalendarDay__selected:hover {
     background-color: tomato;
     border: 1px solid brown;
+}
+
+.DayPickerKeyboardShortcuts_show__bottomRight::before {
+    display: none;
 }
