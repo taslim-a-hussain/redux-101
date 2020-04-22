@@ -42,6 +42,7 @@ class Filter extends React.Component {
                     showClearDates={true}
                     numberOfMonths={1}
                     isOutsideRange={() => false}
+                    displayFormat="Do MMM, YYYY"
                     />
                 }
                 
