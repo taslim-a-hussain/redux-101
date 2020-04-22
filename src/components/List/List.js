@@ -2,7 +2,6 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import sortedExpenses from '../../redux/selectors/expenses';
-import {removeExpense} from '../../redux/actions/expenses';
 
 import './List.scss';
 
@@ -19,9 +18,6 @@ const List = (props) => {
                     <h3>{expense.description}</h3>
                     </Link>
                     <p>{expense.amount} - {expense.createdAt}</p>
-                    <button onClick={() => {
-                        props.dispatch(removeExpense(expense.id));
-                    }}>Remove</button>
                 </div>
             )
             })

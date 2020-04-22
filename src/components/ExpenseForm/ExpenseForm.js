@@ -8,15 +8,19 @@ import './ExpenseForm.scss';
 
 export default class ExpenseForm extends React.Component {
 
-    state = {
-        description: '',
-        note: '',
-        amount: '',
-        createdAt: moment(),
-        error: '',
-        class: 'error',
-        focused: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            description: props.expense ? props.expense.description : '',
+            note: props.expense ? props.expense.note : '',
+            amount: props.expense ? (props.expense.amount/100).toString() : '',
+            createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
+            error: '',
+            class: 'error',
+            focused: false
+        }; 
+    }
+
 
     onChangeDescription = (e) => {
         const description = e.target.value;
@@ -106,7 +110,7 @@ export default class ExpenseForm extends React.Component {
                     <div>
                     <textarea placeholder="Add a note for your expense" value={this.state.note} onChange={this.onChangeNote} />
                     </div>
-                    <button>Add Expense</button>
+                    <button>{this.props.label ? this.props.label : 'Add Expense'}</button>
                 </form>
             </div>
         );  
