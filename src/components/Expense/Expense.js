@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default () => (
+export default ({match}) => (
     <div>
-        <p>Expense Component</p>
+        <h2>Edit Expense</h2>
+        {match.params.id}
     </div>
 );

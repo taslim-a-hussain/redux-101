@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import sortedExpenses from '../../redux/selectors/expenses';
 import {removeExpense} from '../../redux/actions/expenses';
 
@@ -14,7 +15,9 @@ const List = (props) => {
             props.expenses.map((expense, key) => {
             return (
                 <div className="expense-list" key={key}>
-                    <p>{expense.description}</p>
+                    <Link className="edit-btn" to={`/edit/${expense.id}`}>
+                    <h3>{expense.description}</h3>
+                    </Link>
                     <p>{expense.amount} - {expense.createdAt}</p>
                     <button onClick={() => {
                         props.dispatch(removeExpense(expense.id));

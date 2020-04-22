@@ -55,20 +55,43 @@ export default class ExpenseForm extends React.Component {
     };
 
     onDateChange = (createdAt) => {
-        this.setState(() => ({
-            createdAt
-        }))
+        if (createdAt) {
+            this.setState(() => ({
+                createdAt
+            }));
+        }
     };
 
     onFocusChange = ({focused}) => {
         this.setState(() => ({focused}));
     };
 
+    onSubmit = (e) => {
+        e.preventDefault();
+        if (!this.state.description || !this.state.amount) {
+            const error = 'Please provide description and amount.';
+            this.setState(() => ({
+                error
+            }));
+            return;
+        }
+        this.setState(() => ({
+            error: ''
+        }));
+        
+        this.props.onSubmit({
+            description: this.state.description,
+            amount: parseFloat(this.state.amount, 10) * 100,
+            createdAt: this.state.createdAt.valueOf(),
+            note: this.state.note
+        });
+    };
+
     render() {
         return (
             <div>
                 {this.state.error && <p className={this.state.class}>{this.state.error}</p>}
-                <form className="expense-form">
+                <form className="expense-form" onSubmit={this.onSubmit}>
                     <input type="text" placeholder="Description" autoFocus value={this.state.description} onChange={this.onChangeDescription} />
                     <input type="text" placeholder="Amount" value={this.state.amount} onChange={this.onChangeAmount} />
                     <SingleDatePicker 
@@ -86,7 +109,7 @@ export default class ExpenseForm extends React.Component {
                     <button>Add Expense</button>
                 </form>
             </div>
-        );
+        );  
     };
     
-}
+} // End of the class

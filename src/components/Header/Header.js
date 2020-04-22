@@ -16,7 +16,6 @@ const Header = () => {
       <div className="navBar">
           <NavLink exact activeClassName="is-active" to="/">Dashboard</NavLink>
           <NavLink activeClassName="is-active" to="/create">Create</NavLink>
-          <NavLink activeClassName="is-active" to="/expense">Expense</NavLink>
           <NavLink activeClassName="is-active" to="/help">Help</NavLink>
       </div>
     </div>
