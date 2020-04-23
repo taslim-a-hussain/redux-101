@@ -2,14 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import sortedExpenses from '../../redux/selectors/expenses';
+import summary from '../../redux/selectors/summary';
+import Summary from '../Summary/Summary';
 
 import './List.scss';
 
 const List = (props) => {
 
+    const summ = summary(props.expenses);
+
     return (
     <div>
-        <h2>List</h2>
+        <Summary total={summ.total} length={summ.length} />
+        {summ.length !== 0 && <h2>List</h2>}
         {
             props.expenses.map((expense, key) => {
             return (
