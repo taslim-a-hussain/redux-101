@@ -19,6 +19,8 @@ export default class ExpenseForm extends React.Component {
             class: 'error',
             focused: false
         }; 
+        // create a ref to store the textInput DOM element
+        this.textInput = React.createRef();
     }
 
 
@@ -70,6 +72,26 @@ export default class ExpenseForm extends React.Component {
         this.setState(() => ({focused}));
     };
 
+    resetState = () => {
+        this.setState(() => ({
+            description: '',
+            note: '',
+            amount: '',
+            createdAt: moment()
+        }));
+    };
+
+    // Set restState to false
+    setResetState = () => {
+        this.resetState = false;
+    };
+
+    focus = () => {
+        // Explicitly focus the text input using the raw DOM API
+        // Note: we're accessing "current" to get the DOM node
+        this.textInput.current.focus();
+    };
+
     onSubmit = (e) => {
         e.preventDefault();
         if (!this.state.description || !this.state.amount) {
@@ -88,15 +110,16 @@ export default class ExpenseForm extends React.Component {
             amount: parseFloat(this.state.amount, 10) * 100,
             createdAt: this.state.createdAt.valueOf(),
             note: this.state.note
-        });
+        }, this.resetState);
+
     };
 
     render() {
         return (
             <div>
                 {this.state.error && <p className={this.state.class}>{this.state.error}</p>}
-                <form className="expense-form" onSubmit={this.onSubmit}>
-                    <input type="text" placeholder="Description" autoFocus value={this.state.description} onChange={this.onChangeDescription} />
+                <form id="expenseForm" autoComplete="off" className="expense-form" onSubmit={this.onSubmit}>
+                    <input type="text" id="yo" placeholder="Description" ref={this.textInput} autoFocus value={this.state.description} onChange={this.onChangeDescription} />
                     <input type="text" placeholder="Amount" value={this.state.amount} onChange={this.onChangeAmount} />
                     <SingleDatePicker 
                       date={this.state.createdAt} 
@@ -110,7 +133,8 @@ export default class ExpenseForm extends React.Component {
                     <div>
                     <textarea placeholder="Add a note for your expense" value={this.state.note} onChange={this.onChangeNote} />
                     </div>
-                    <button>{this.props.label ? this.props.label : 'Add Expense'}</button>
+                    <button onClick={this.focus}>{this.props.label ? this.props.label : 'Add More'}</button>
+                    {this.props.exitBtn && <button onClick={this.setResetState}>Add Expense & Exit</button>}
                 </form>
             </div>
         );  
