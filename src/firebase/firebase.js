@@ -1,4 +1,6 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/database';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyDOEbvKENCK7mtNvFHhVVSL_1cIY2wdh5M",
@@ -12,6 +14,10 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
-  firebase.database().ref().set({
-      name: 'Taslim A Hussain'
+
+  const db = firebase.database();
+
+  db.ref().set({
+      name: 'Hello',
+      age: 37
   });
