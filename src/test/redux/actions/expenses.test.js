@@ -1,4 +1,4 @@
-import {removeExpense, editExpense, addExpense} from '../../../redux/actions/expenses';
+import {removeExpense, editExpense, addExpense, startAddExpense} from '../../../redux/actions/expenses';
 
 test('Remove expense by an id', () => {
     const result = removeExpense('1234');
@@ -19,14 +19,14 @@ test('Edit expense by an id and passing a new expense obj', () => {
     });
 });
 
-test('Add expense', () => {
+test('Start Add Expense', () => {
     const expense = {
         description: 'coffee',
         note: 'Morning coffee',
         amount: 2.30,
         createdAt: 3000
     };
-    const result = addExpense(expense);
+    const result = startAddExpense(expense);
     expect(result).toEqual({
         type: 'ADD_EXPENSE',
         expense: {

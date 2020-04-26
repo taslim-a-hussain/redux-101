@@ -17,7 +17,4 @@ const firebaseConfig = {
 
   const db = firebase.database();
 
-  db.ref().set({
-      name: 'Hello',
-      age: 37
-  });
+export { firebase, db };

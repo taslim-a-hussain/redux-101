@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseForm from '../ExpenseForm/ExpenseForm';
-import {addExpense} from '../../redux/actions/expenses';
+import {startAddExpense} from '../../redux/actions/expenses';
 import Added from '../Added/Added';
 
 const Create = ({expenses, dispatch, history}) => {
@@ -13,7 +13,7 @@ const Create = ({expenses, dispatch, history}) => {
         <div>
             <h2>Add Expense</h2>
             <ExpenseForm exitBtn onSubmit={(expense, reset) => {
-                dispatch(addExpense(expense));
+                dispatch(startAddExpense(expense));
                 reset ? reset() : history.push('/');
             }} />
             <Added expense={lastInserted} />
